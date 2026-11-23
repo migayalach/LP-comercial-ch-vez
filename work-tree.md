@@ -1,0 +1,33 @@
+```
+└── 📁comercial-chavez
+    └── 📁public
+        ├── favicon.svg
+        ├── icons.svg
+    └── 📁src
+        └── 📁assets
+            ├── hero.png
+            ├── react.svg
+            ├── vite.svg
+        └── 📁components
+            ├── Footer.tsx
+            ├── Header.tsx
+            ├── Loading.tsx
+        └── 📁layouts
+            ├── MainLayout.tsx
+        └── 📁pages
+            ├── Cart.tsx
+            ├── Category.tsx
+            ├── Home.tsx
+            ├── NotFound.tsx
+        ├── App.css
+        ├── App.tsx
+        ├── index.css
+        ├── main.tsx
+    ├── .gitignore
+    ├── eslint.config.js
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── README.md
+    └── vite.config.ts
+```
