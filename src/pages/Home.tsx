@@ -5,29 +5,41 @@ import VisitUs from "../components/VisitUs";
 
 const categories = [
   {
-    name: "Cervezas",
+    name: "CERVEZAS",
     description: "Las mejores marcas siempre frías.",
     path: "/categoria/cervezas",
     icon: "🍺",
   },
   {
-    name: "Licores",
+    name: "LICORES",
     description: "Variedad para cada celebración.",
     path: "/categoria/licores",
     icon: "🥃",
   },
   {
-    name: "Refrescos",
+    name: "REFRESCOS",
     description: "Bebidas para toda ocasión.",
     path: "/categoria/refrescos",
     icon: "🥤",
   },
   {
-    name: "Cigarrillos",
+    name: "CIGARILLOS",
     description: "Consulta nuestras opciones.",
     path: "/categoria/cigarrillos",
     icon: "🚬",
   },
+  {
+    name: "BOCADITOS",
+    description: "Snacks y bocaditos para compartir.",
+    path: "/categoria/bocaditos",
+    icon: "🍿",
+  },
+  // {
+  //   name: "HIELOS",
+  //   description: "Hielo para mantener tus bebidas frías.",
+  //   path: "/categoria/hielos",
+  //   icon: "🧊",
+  // },
 ];
 
 function Home() {
@@ -37,17 +49,14 @@ function Home() {
     <div className="bg-white">
       {/* HERO */}
       <section className="relative flex min-h-[750px] items-center overflow-hidden bg-gray-950">
-        {/* Imagen de fondo */}
         <img
           src="https://res.cloudinary.com/dqgcyonb9/image/upload/v1795480540/Chavez/r4cszzfpyk7a17wzdfrx"
           alt="Comercial Chávez"
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* Capa más clara */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-black/5" />
 
-        {/* Contenido */}
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-28">
           <div className="max-w-2xl">
             <h1 className="mt-8 text-5xl font-black leading-tight text-white md:text-7xl">
@@ -81,7 +90,7 @@ function Home() {
 
       {/* CATEGORÍAS */}
       <section id="categorias" className="bg-gray-50 px-6 py-20">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1600px] px-2">
           <div className="mb-10 text-center">
             <h2 className="mt-3 text-3xl font-black text-gray-900 md:text-4xl">
               Nuestras categorías
@@ -92,26 +101,26 @@ function Home() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {categories.map((category) => (
               <Link
                 key={category.name}
                 to={category.path}
-                className="group rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition hover:-translate-y-2 hover:shadow-xl"
+                className="group rounded-2xl border-2 border-primary bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:shadow-xl"
               >
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-red-50 text-4xl transition group-hover:bg-red-100">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-red-50 text-4xl transition-colors duration-300 group-hover:bg-white/20">
                   {category.icon}
                 </div>
 
-                <h3 className="text-xl font-extrabold text-gray-900">
+                <h3 className="text-xl font-extrabold text-gray-900 transition-colors duration-300 group-hover:text-white">
                   {category.name}
                 </h3>
 
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-sm text-gray-500 transition-colors duration-300 group-hover:text-white">
                   {category.description}
                 </p>
 
-                <span className="mt-6 inline-block font-bold text-red-600">
+                <span className="mt-6 inline-block font-bold text-primary transition-colors duration-300 group-hover:text-white">
                   Ver categoría →
                 </span>
               </Link>
@@ -122,7 +131,7 @@ function Home() {
 
       {/* PRODUCTOS DESTACADOS */}
       <section className="px-6 py-20">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1600px] px-2">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
             <div>
               <h2 className="mt-3 text-3xl font-black text-gray-900 md:text-4xl">
@@ -177,7 +186,7 @@ function Home() {
         </div>
       </section>
 
-      {/* MODAL */}
+      {/* MARCAS */}
       <BrandsModal />
 
       {/* VISÍTANOS */}
