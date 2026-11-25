@@ -1,4 +1,6 @@
 function VisitUs() {
+  const ubicacion = "-17.9824045,-67.1163495";
+
   return (
     <section className="bg-background px-6 py-16 md:py-20">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
@@ -47,55 +49,42 @@ function VisitUs() {
                 </p>
               </div>
             </div>
+
+            <a
+              href={`https://www.google.com/maps/dir/?api=1&destination=${ubicacion}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-white transition hover:opacity-90"
+            >
+              Cómo llegar
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="h-4 w-4"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 12h14m-6-6 6 6-6 6"
+                />
+              </svg>
+            </a>
           </div>
 
-          {/* UBICACIÓN */}
-          <div className="flex min-h-[320px] items-center justify-center bg-red-50 p-8 md:min-h-full">
-            <div className="max-w-sm text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary text-white shadow-md">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.7}
-                  stroke="currentColor"
-                  className="h-8 w-8"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 21s7-5.5 7-12a7 7 0 1 0-14 0c0 6.5 7 12 7 12Z"
-                  />
-                  <circle cx="12" cy="9" r="2.5" />
-                </svg>
-              </div>
-
-              <h3 className="mt-5 text-2xl text-heading">
-                NUESTRA UBICACIÓN
-              </h3>
-
-              <p className="mt-3 text-sm leading-6 text-muted">
-                Próximamente agregaremos nuestra dirección para que
-                puedas encontrarnos fácilmente.
-              </p>
-
-              <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-primary shadow-sm">
-                <span>Pedidos por WhatsApp</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="h-4 w-4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 12h14m-6-6 6 6-6 6"
-                  />
-                </svg>
-              </div>
-            </div>
+          {/* MAPA */}
+          <div className="min-h-[350px] md:min-h-[450px]">
+            <iframe
+              title="Ubicación de Comercial Chávez"
+              src={`https://maps.google.com/maps?q=${ubicacion}&z=17&output=embed`}
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: "350px" }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
 
         </div>
