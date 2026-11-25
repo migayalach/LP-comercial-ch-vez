@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://comercial-ch-vez-express.vercel.app/sitemap.xml
+Sitemap: https://lp-comercial-ch-vez.vercel.app/sitemap.xml
