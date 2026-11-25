@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
 import EmptyProducts from "../components/EmptyProducts";
+import { useState } from "react";
+import Toast from "../components/Toast";
 
 function Category() {
   const { categoria } = useParams();
@@ -20,9 +22,11 @@ function Category() {
     (product) => product.category === categoria,
   );
 
+  const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
+
   return (
     <main className="min-h-screen bg-gray-50 px-6 py-12">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1600px] px-2">
         <div className="mb-10">
           <h1 className="text-4xl font-extrabold text-gray-900">
             {nombres[categoria ?? ""] || "Categoría no encontrada"}
@@ -62,8 +66,11 @@ function Category() {
                   </span>
 
                   <button
-                    onClick={() => addToCart(product)}
-                    className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700"
+                    onClick={() => {
+                      addToCart(product);
+                      setSelectedProduct(product.name);
+                    }}
+                    className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary-dark"
                   >
                     Agregar
                   </button>
@@ -74,6 +81,14 @@ function Category() {
         </div>
 
         {productosFiltrados.length === 0 && <EmptyProducts />}
+        {selectedProduct && (
+          <Toast
+            key={selectedProduct}
+            message="¡Producto agregado!"
+            productName={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+          />
+        )}
       </div>
     </main>
   );
