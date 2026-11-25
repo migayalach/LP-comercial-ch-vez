@@ -3,15 +3,25 @@
     └── 📁public
         ├── favicon.svg
         ├── icons.svg
+        ├── logo.jpeg
     └── 📁src
         └── 📁assets
             ├── hero.png
             ├── react.svg
             ├── vite.svg
         └── 📁components
+            ├── BrandsModal.tsx
+            ├── EmptyProducts.tsx
             ├── Footer.tsx
             ├── Header.tsx
             ├── Loading.tsx
+            ├── Toast.tsx
+            ├── VisitUs.tsx
+            ├── WhatsAppButton.tsx
+        └── 📁context
+            ├── CartContext.tsx
+        └── 📁data
+            ├── products.ts
         └── 📁layouts
             ├── MainLayout.tsx
         └── 📁pages
@@ -21,13 +31,16 @@
             ├── NotFound.tsx
         ├── App.css
         ├── App.tsx
+        ├── constants.tsx
         ├── index.css
         ├── main.tsx
+        ├── vite-env.d.ts
     ├── .gitignore
     ├── eslint.config.js
     ├── index.html
     ├── package-lock.json
     ├── package.json
     ├── README.md
-    └── vite.config.ts
+    ├── vite.config.ts
+    └── work-tree.md
 ```
