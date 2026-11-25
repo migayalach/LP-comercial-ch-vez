@@ -1,33 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { WHATSAPP_LINK, generateWhatsAppMessage } from "../constants";
 
 function Cart() {
+  const navigate = useNavigate();
+
   const {
     items,
     total,
     increaseQuantity,
     decreaseQuantity,
     removeFromCart,
+    clearCart,
   } = useCart();
 
   const finalizarPedido = () => {
-    const numeroWhatsApp = "59170000000";
+    const mensaje = generateWhatsAppMessage(items, total);
 
-    const detalle = items
-      .map(
-        (item) =>
-          `• ${item.product.name} x${item.quantity} - Bs. ${
-            item.product.price * item.quantity
-          }`
-      )
-      .join("\n");
+    window.open(`${WHATSAPP_LINK}?text=${mensaje}`, "_blank");
 
-    const mensaje = `Hola, quiero realizar el siguiente pedido:\n\n${detalle}\n\nTotal: Bs. ${total}`;
-
-    window.open(
-      `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`,
-      "_blank"
-    );
+    clearCart();
+    navigate("/");
   };
 
   return (
@@ -39,9 +32,7 @@ function Cart() {
 
         {items.length === 0 ? (
           <div className="rounded-2xl bg-white p-10 text-center shadow-sm">
-            <p className="mb-6 text-gray-500">
-              Tu carrito está vacío.
-            </p>
+            <p className="mb-6 text-gray-500">Tu carrito está vacío.</p>
 
             <Link
               to="/categoria/cervezas"
@@ -80,9 +71,7 @@ function Cart() {
                       -
                     </button>
 
-                    <span className="font-semibold">
-                      {item.quantity}
-                    </span>
+                    <span className="font-semibold">{item.quantity}</span>
 
                     <button
                       onClick={() => increaseQuantity(item.product.id)}
@@ -109,13 +98,13 @@ function Cart() {
             </div>
 
             <aside className="h-fit rounded-2xl bg-white p-6 shadow-sm">
-              <h2 className="mb-5 text-xl font-bold">
-                Resumen del pedido
-              </h2>
+              <h2 className="mb-5 text-xl font-bold">Resumen del pedido</h2>
 
               <div className="flex justify-between border-b border-gray-100 pb-4">
                 <span className="text-gray-500">Productos</span>
-                <span>{items.reduce((sum, item) => sum + item.quantity, 0)}</span>
+                <span>
+                  {items.reduce((sum, item) => sum + item.quantity, 0)}
+                </span>
               </div>
 
               <div className="flex justify-between py-5">
