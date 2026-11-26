@@ -3,7 +3,9 @@
     └── 📁public
         ├── favicon.svg
         ├── icons.svg
-        ├── logo.jpeg
+        ├── logo.png
+        ├── robots.txt
+        ├── sitemap.xml
     └── 📁src
         └── 📁assets
             ├── hero.png
@@ -41,6 +43,7 @@
     ├── package-lock.json
     ├── package.json
     ├── README.md
+    ├── vercel.json
     ├── vite.config.ts
     └── work-tree.md
 ```
